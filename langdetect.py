@@ -29,7 +29,7 @@ MIN_LEN = 140
 NUM_SAMPLES = 250000
 RANDOM_STATE = 42
 
-from support import define_alphabet
+from Data_Cleaning import define_alphabet
 # Load the Alphabet
 alphabet = define_alphabet()
 print('All aphabets are:',end="  ")
@@ -55,7 +55,7 @@ samples_directory = os.path.join('/tmp', 'samples')
 train_test_directory = os.path.join('/tmp', 'train_test')
 
 #%%
-from support import get_sample_text, get_input_row
+from Data_Cleaning import get_sample_text, get_input_row
 
 # last part calculates also input_size for DNN so this code must be run before DNN is trained
 path = os.path.join(cleaned_directory, "es_cleaned.txt")
@@ -263,7 +263,7 @@ LABELS =  list(LANGUAGES_DICT.keys())
 
 # Plot confusion matrix 
 from sklearn.metrics import confusion_matrix
-from support import print_confusion_matrix
+from Data_Cleaning import print_confusion_matrix
 
 cnf_matrix = confusion_matrix(np.argmax(Y_pred,axis=1), np.argmax(Y_test,axis=1))
 print_confusion_matrix(cnf_matrix, LABELS)
@@ -277,7 +277,7 @@ print(classification_report(Y_test, Y_pred, target_names=LABELS))
 
 from ipywidgets import interact_manual
 from ipywidgets import widgets
-from support import clean_text
+from Data_Cleaning import clean_text
 
 
 def get_prediction(TEXT):
